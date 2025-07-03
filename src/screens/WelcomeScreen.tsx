@@ -7,7 +7,12 @@ const WelcomeScreen: React.FC = () => {
   return (
     <div className="screen-container">
       <div className="screen-content no-header content-animate">
-        <h1 style={{ textAlign: 'center', marginBottom: 'var(--space-sm)' }}>
+        <h1 style={{ 
+          textAlign: 'center', 
+          marginBottom: 'var(--space-sm)',
+          fontSize: '3rem',
+          lineHeight: '1.1'
+        }}>
           Velkommen til Slang
         </h1>
         <p style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', fontSize: '1rem' }}>

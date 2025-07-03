@@ -55,7 +55,7 @@ const GetReadyScreen: React.FC = () => {
               cx="110" 
               cy="110" 
               r="100" 
-              stroke="var(--color-secondary)" 
+              stroke="var(--color-primary)" 
               strokeWidth="12" 
               fill="none" 
               strokeDasharray={circumference} 

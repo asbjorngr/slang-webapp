@@ -54,6 +54,18 @@ const RegistrationScreen: React.FC = () => {
     transition: 'all 0.2s ease'
   };
 
+  const dateInputStyle = {
+    ...inputStyle,
+    colorScheme: 'light',
+    WebkitAppearance: 'none' as const,
+    MozAppearance: 'textfield' as const
+  };
+
+  // Get today's date for max constraint (people shouldn't be born in the future)
+  const today = new Date().toISOString().split('T')[0];
+  // Set a reasonable min date (100 years ago)
+  const minDate = new Date(new Date().getFullYear() - 100, 0, 1).toISOString().split('T')[0];
+
   return (
     <div className="screen-container">
       <div className="screen-header">
@@ -107,8 +119,10 @@ const RegistrationScreen: React.FC = () => {
                 placeholder="Fødselsdato"
                 value={formData.participant1BirthDate}
                 onChange={(e) => handleInputChange('participant1BirthDate', e.target.value)}
+                min={minDate}
+                max={today}
                 required
-                style={inputStyle}
+                style={dateInputStyle}
               />
               
               <input
@@ -152,8 +166,10 @@ const RegistrationScreen: React.FC = () => {
                 placeholder="Fødselsdato"
                 value={formData.participant2BirthDate}
                 onChange={(e) => handleInputChange('participant2BirthDate', e.target.value)}
+                min={minDate}
+                max={today}
                 required
-                style={inputStyle}
+                style={dateInputStyle}
               />
               
               <input
