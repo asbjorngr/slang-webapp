@@ -17,11 +17,11 @@ const TipsScreen: React.FC = () => {
         <span className="back-button" onClick={() => navigate(-1)}>&larr;</span>
       </div>
 
-      <div className="screen-content content-animate">
+      <div className="screen-content stable-animate">
         <h1 style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>
           Noen tips før dere starter
         </h1>
-        <div className="stagger-animate" style={{ 
+        <div className="stable-animate" style={{ 
           width: '100%', 
           maxWidth: '340px', 
           marginBottom: 'var(--space-xl)' 
@@ -32,8 +32,25 @@ const TipsScreen: React.FC = () => {
             </div>
           ))}
         </div>
-        <div>
-          <img src={horseImg} alt="Slang mascot" style={{ width: 60, height: 60, objectFit: 'contain' }} />
+        {/* Fixed image container to prevent layout shift */}
+        <div style={{ 
+          width: '60px', 
+          height: '60px', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center' 
+        }}>
+          <img 
+            src={horseImg} 
+            alt="Slang mascot" 
+            style={{ 
+              width: '60px', 
+              height: '60px', 
+              objectFit: 'contain',
+              display: 'block'
+            }} 
+            onLoad={() => {}} // Prevent any potential loading flicker
+          />
         </div>
       </div>
 
