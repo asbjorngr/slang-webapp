@@ -25,6 +25,9 @@ const EnableRecordingScreen: React.FC = () => {
             <path d="M16 32V34C16 37.3137 18.6863 40 22 40H26C29.3137 40 32 37.3137 32 34V32" stroke="#222" strokeWidth="2" />
           </svg>
           <h2 style={{ textAlign: 'center', margin: 0 }}>Husk å slå på taleopptak</h2>
+          <p style={{ textAlign: 'center', marginTop: 'var(--space-md)', marginBottom: 0, fontSize: '0.95rem', opacity: 0.8 }}>
+            Bruk én telefon til å bla i spørsmålene, og en annen telefon til å gjøre taleopptaket.
+          </p>
         </div>
       </div>
 
