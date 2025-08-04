@@ -195,7 +195,7 @@ p, span, label, li, div {
 
 .progress-fill {
   height: 100%;
-  background: #000000;
+  background: #C7B1E8;
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -464,7 +464,7 @@ img {
 
 .question-progress .progress-fill {
   height: 100%;
-  background: #000000;
+  background: #C7B1E8;
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
