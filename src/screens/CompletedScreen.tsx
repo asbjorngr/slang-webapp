@@ -38,12 +38,6 @@ const CompletedScreen: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <div className="screen-footer">
-        <button onClick={() => navigate('/registration')}>
-          Gå til registrering
-        </button>
-      </div>
     </div>
   );
 };
