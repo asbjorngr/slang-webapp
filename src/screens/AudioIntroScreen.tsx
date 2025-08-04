@@ -20,7 +20,7 @@ const AudioIntroScreen: React.FC = () => {
         <h1 style={{ textAlign: 'center', marginBottom: 'var(--space-sm)' }}>
           Kjapp intro
         </h1>
-        <p style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', fontSize: '1rem' }}>
+        <p style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', fontSize: '1.1rem' }}>
           Lurt å høre ferdig før du går videre
         </p>
         <div style={{ 

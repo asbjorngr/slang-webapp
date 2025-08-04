@@ -75,7 +75,7 @@ const RegistrationScreen: React.FC = () => {
       <div className="screen-content" style={{ justifyContent: 'flex-start', paddingTop: 'calc(var(--header-height) + var(--space-lg))', paddingBottom: 'calc(var(--footer-height) + var(--space-lg))' }}>
         <div style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }} className="content-animate">
           <h1 style={{ marginBottom: 'var(--space-xs)' }}>Registrering</h1>
-          <p style={{ fontSize: '1rem', color: '#666', lineHeight: '1.4' }}>
+          <p style={{ fontSize: '1.1rem', color: '#666', lineHeight: '1.4' }}>
             Legg inn kontaktinfo for<br />godtgjørelse
           </p>
         </div>

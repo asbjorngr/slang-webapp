@@ -16,21 +16,21 @@ const CompletedScreen: React.FC = () => {
           <img src={horseImg} alt="Slang mascot" style={{ width: 120, height: 120, objectFit: 'contain' }} />
         </div>
         <h1 style={{ textAlign: 'center', marginBottom: 'var(--space-xs)' }}>Ferdig!</h1>
-        <p style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', fontSize: '1rem' }}>
+        <p style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', fontSize: '1.1rem' }}>
           Dere har fullført Slang<br />om Trondheim Kino
         </p>
         
         <div className="stagger-animate" style={{ width: '100%', maxWidth: '340px' }}>
           <div className="card" style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--space-sm)' }}>
-            <span style={{ fontSize: '0.95rem' }}>Du kan nå stanse lydopptaket. Husk å lagre.</span>
+            <span style={{ fontSize: '1.1rem' }}>Du kan nå stanse lydopptaket. Husk å lagre.</span>
           </div>
           
           <div className="card" style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--space-sm)' }}>
-            <span style={{ fontSize: '0.95rem' }}>Send lydopptaket til Superponni.</span>
+            <span style={{ fontSize: '1.1rem' }}>Send lydopptaket til Superponni.</span>
           </div>
           
           <div className="card" style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--space-sm)' }}>
-            <span style={{ fontSize: '0.95rem' }}>Godtgjørelse gis etter at lydopptaket er mottatt og gjennomgått.</span>
+            <span style={{ fontSize: '1.1rem' }}>Godtgjørelse gis etter at lydopptaket er mottatt og gjennomgått.</span>
           </div>
         </div>
       </div>

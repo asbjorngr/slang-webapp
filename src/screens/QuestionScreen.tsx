@@ -119,7 +119,7 @@ const QuestionScreen: React.FC = () => {
           <div style={{ fontWeight: 'bold', marginBottom: 'var(--space-xs)' }}>
             Oppfølgingsspørsmål
           </div>
-          <span>{followup}</span>
+          <span style={{ fontSize: '1.1rem' }}>{followup}</span>
         </div>
       </div>
 

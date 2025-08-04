@@ -15,7 +15,7 @@ const WelcomeScreen: React.FC = () => {
         }}>
           Velkommen til Slang
         </h1>
-        <p style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', fontSize: '1rem' }}>
+        <p style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', fontSize: '1.1rem' }}>
           I denne runden vil vi høre hva dere tenker om Trondheim Kino
         </p>
         <div style={{ marginBottom: 'var(--space-xl)' }}>

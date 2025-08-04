@@ -18,7 +18,7 @@ const ThankYouScreen: React.FC = () => {
         <img src={horseImg} alt="Slang mascot" style={{ width: 80, height: 80, objectFit: 'contain' }} />
       </div>
       <h1 style={{ textAlign: 'center', marginBottom: '1rem' }}>Tusen takk!</h1>
-      <p style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Dere har fullført Slang om Trondheim Kino</p>
+      <p style={{ textAlign: 'center', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Dere har fullført Slang om Trondheim Kino</p>
       <div style={{ width: '100%', maxWidth: 340, marginBottom: '2rem' }}>
         {instructions.map((inst, idx) => (
           <div key={idx} className="card" style={{ display: 'flex', alignItems: 'flex-start' }}>
