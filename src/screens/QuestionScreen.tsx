@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import chatIcon from '../assets/ChatCircleText.svg';
 
 const questions = [
   {
@@ -115,12 +114,6 @@ const QuestionScreen: React.FC = () => {
           maxWidth: '340px',
           width: '100%'
         }}>
-          <img src={chatIcon} alt="Chat icon" style={{ 
-            marginRight: 10, 
-            width: 20, 
-            height: 20, 
-            flexShrink: 0 
-          }} />
           <span>{followup}</span>
         </div>
       </div>

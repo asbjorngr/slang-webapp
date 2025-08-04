@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import horseImg from '../assets/a transparent icon of an icelandic pony head.png';
-import chatIcon from '../assets/ChatCircleText.svg';
 
 const tips = [
   'Dette er en uformell samtale mellom dere to – bare snakk fritt!',
@@ -29,12 +28,6 @@ const TipsScreen: React.FC = () => {
         }}>
           {tips.map((tip, idx) => (
             <div key={idx} className="card" style={{ display: 'flex', alignItems: 'flex-start' }}>
-              <img src={chatIcon} alt="Chat icon" style={{ 
-                marginRight: 10, 
-                width: 20, 
-                height: 20, 
-                flexShrink: 0 
-              }} />
               <span>{tip}</span>
             </div>
           ))}
