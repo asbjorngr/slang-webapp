@@ -22,15 +22,15 @@ const CompletedScreen: React.FC = () => {
         
         <div className="stagger-animate" style={{ width: '100%', maxWidth: '340px' }}>
           <div className="card" style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--space-sm)' }}>
-            <span style={{ fontSize: '0.95rem' }}>Du kan nå stanse lydopptaket. Husk å lagre</span>
+            <span style={{ fontSize: '0.95rem' }}>Du kan nå stanse lydopptaket. Husk å lagre.</span>
           </div>
           
           <div className="card" style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--space-sm)' }}>
-            <span style={{ fontSize: '0.95rem' }}>Send lydopptaket til Superponni</span>
+            <span style={{ fontSize: '0.95rem' }}>Send lydopptaket til Superponni.</span>
           </div>
           
           <div className="card" style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--space-sm)' }}>
-            <span style={{ fontSize: '0.95rem' }}>Godtgjørelse utbetales etter at lydopptaket er mottatt</span>
+            <span style={{ fontSize: '0.95rem' }}>Godtgjørelse gis etter at lydopptaket er mottatt og gjennomgått.</span>
           </div>
         </div>
       </div>
