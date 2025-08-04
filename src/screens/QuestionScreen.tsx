@@ -29,7 +29,7 @@ const questions = [
   },
   {
     question: 'Hvordan er en skikkelig bra kinokveld?',
-    followup: 'Hva måååå du ha liksom?'
+    followup: 'Hva liker du å gjøre før og etter en tur på kino?'
   },
   {
     question: 'Hva kan få deg til å droppe kino, selv når du vet at det går noe bra?',
