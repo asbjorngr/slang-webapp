@@ -24,7 +24,7 @@ const questions = [
   },
   {
     question: 'Hva er det første du tenker når du hører ordet kino?',
-    followup: 'Hvorfor akkurat de tingene?'
+    followup: 'Hvordan vil du beskrive ditt forhold til kino?'
   },
   {
     question: 'Hvordan er en skikkelig bra kinokveld?',
@@ -109,11 +109,16 @@ const QuestionScreen: React.FC = () => {
         </h1>
         <div className="card" style={{ 
           display: 'flex', 
+          flexDirection: 'column',
           alignItems: 'center', 
           justifyContent: 'center',
           maxWidth: '340px',
-          width: '100%'
+          width: '100%',
+          textAlign: 'center'
         }}>
+          <div style={{ fontWeight: 'bold', marginBottom: 'var(--space-xs)' }}>
+            Oppfølgingsspørsmål
+          </div>
           <span>{followup}</span>
         </div>
       </div>
