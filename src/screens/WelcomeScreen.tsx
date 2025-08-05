@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import horseImg from '../assets/a transparent icon of an icelandic pony head.png';
+import horseImg from '../assets/Kjærlighet.svg';
 
 const WelcomeScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -34,8 +34,8 @@ const WelcomeScreen: React.FC = () => {
           </p>
           {/* Fixed image container to prevent layout shift */}
           <div style={{ 
-            width: '80px', 
-            height: '80px', 
+            width: '160px', 
+            height: '160px', 
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center',
@@ -45,8 +45,8 @@ const WelcomeScreen: React.FC = () => {
               src={horseImg} 
               alt="Slang mascot" 
               style={{ 
-                width: '80px', 
-                height: '80px', 
+                width: '160px', 
+                height: '160px', 
                 objectFit: 'contain',
                 display: 'block'
               }} 

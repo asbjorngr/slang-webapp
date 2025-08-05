@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import horseImg from '../assets/a transparent icon of an icelandic pony head.png';
 
 const GetReadyScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -74,7 +73,17 @@ const GetReadyScreen: React.FC = () => {
             alignItems: 'center', 
             justifyContent: 'center' 
           }}>
-            <img src={horseImg} alt="Slang mascot" style={{ width: 120, height: 120, objectFit: 'contain' }} />
+            <span style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 'var(--heading-weight)',
+              fontSize: '2.5rem',
+              color: 'var(--color-text)',
+              textAlign: 'center',
+              lineHeight: 1,
+              letterSpacing: '-0.02em'
+            }}>
+              {Math.round(progress)}%
+            </span>
           </div>
         </div>
       </div>

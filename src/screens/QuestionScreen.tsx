@@ -4,15 +4,15 @@ import { useNavigate, useParams } from 'react-router-dom';
 const questions = [
   {
     question: 'Når var sist gang du gjorde noe gøy? Hva gjorde du?',
-    followup: 'Hva gjorde det så bra?'
+    followup: 'Hva var den beste delen med hele greia?'
   },
   {
     question: 'Hva er det beste stedet å henge i byen akkurat nå?',
-    followup: 'Hva er bra med det?'
+    followup: 'Hvorfor er det så bra?'
   },
   {
     question: 'Hva er en bra kveld for deg?',
-    followup: 'Er det folkene, stedet, stemningen – eller noe annet?'
+    followup: 'Er det folka, stedet eller stemninga?'
   },
   {
     question: 'Du har 200 kr til å finne på noe. Hva bruker du det på?',
@@ -39,8 +39,8 @@ const questions = [
     followup: 'Andre ting?'
   },
   {
-    question: 'Hva er det mest stressende med å planlegge noe med venner nå for tida?',
-    followup: 'Hva tror du voksne ikke forstår om hvordan det er å være ung?'
+    question: 'Hva er mest stress med å planlegge noe med venner nå for tida?',
+    followup: 'Hva tror du voksne ikke skjønner om hvordan det er å være ung?'
   },
   {
     question: 'Hva skal til for at alle i gjengen blir med på noe?',
@@ -52,7 +52,7 @@ const questions = [
   },
   {
     question: 'Hvis Trondheim kino var en person på fest, hvordan hadde hen oppført seg?',
-    followup: 'Hvorfor tenker du sånn?'
+    followup: 'Hva får deg til å tenke sånn?'
   },
   {
     question: 'Hva synes du Trondheim kino gjør bra – og hva kunne de gjort annerledes?',
