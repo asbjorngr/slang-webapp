@@ -1,61 +1,34 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import horseImg from '../assets/a transparent icon of an icelandic pony head.png';
 
 const tips = [
   'Dette er en uformell samtale mellom dere to – bare snakk fritt!',
   'Vær ærlig – det første dere tenker er ofte det mest ekte.',
-  'Still oppfølgingsspørsmål og spør deg selv: "Er det noe mer her?"',
-  'Gode svar kommer gjerne etter man tror man har svart på det.'
+  'Still oppfølgingsspørsmål og spør deg selv: "Er det noe mer her?"'
 ];
 
 const TipsScreen: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div className="screen-container">
-      <div className="screen-header">
-        <span className="back-button" onClick={() => navigate(-1)}>&larr;</span>
-      </div>
-
-      <div className="screen-content stable-animate">
-        <h1 style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>
+      <div className="screen-content no-header no-footer centered-content-layout stable-animate">
+        <h1 className="screen-title">
           Noen tips før dere starter
         </h1>
-        <div className="stable-animate" style={{ 
-          width: '100%', 
-          maxWidth: '340px', 
-          marginBottom: 'var(--space-xl)' 
-        }}>
+        <div className="stable-animate card-container">
           {tips.map((tip, idx) => (
             <div key={idx} className="card" style={{ display: 'flex', alignItems: 'flex-start' }}>
               <span>{tip}</span>
             </div>
           ))}
         </div>
-        {/* Fixed image container to prevent layout shift */}
-        <div style={{ 
-          width: '60px', 
-          height: '60px', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'center' 
-        }}>
-          <img 
-            src={horseImg} 
-            alt="Slang mascot" 
-            style={{ 
-              width: '60px', 
-              height: '60px', 
-              objectFit: 'contain',
-              display: 'block'
-            }} 
-            onLoad={() => {}} // Prevent any potential loading flicker
-          />
-        </div>
       </div>
 
-      <div className="screen-footer">
-        <button onClick={() => navigate('/enable-recording')}>
+      <div className="standard-button-container">
+        <button 
+          className="standard-button"
+          onClick={() => navigate('/enable-recording')}
+        >
           Fortsett
         </button>
       </div>

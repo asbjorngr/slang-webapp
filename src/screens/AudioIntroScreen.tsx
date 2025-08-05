@@ -8,25 +8,16 @@ const AudioIntroScreen: React.FC = () => {
 
   return (
     <div className="screen-container">
-      <div className="screen-header">
-        <span className="back-button" onClick={() => navigate(-1)}>&larr;</span>
-      </div>
-
-      <div className="screen-content content-animate" style={{ 
-        justifyContent: 'flex-start', 
-        paddingTop: 'calc(var(--header-height) + var(--space-xl))',
-        paddingBottom: 'calc(var(--footer-height) + var(--space-lg))'
-      }}>
-        <h1 style={{ textAlign: 'center', marginBottom: 'var(--space-sm)' }}>
+      <div className="screen-content no-header no-footer centered-content-layout stable-animate">
+        <h1 className="screen-title">
           Kjapp intro
         </h1>
-        <p style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', fontSize: '1.1rem' }}>
+        <p style={{ textAlign: 'center', fontSize: '1.1rem' }}>
           Lurt å høre ferdig før du går videre
         </p>
         <div style={{ 
           width: '100%', 
           maxWidth: '340px',
-          marginBottom: 'var(--space-lg)',
           display: 'flex',
           justifyContent: 'center'
         }}>
@@ -34,8 +25,11 @@ const AudioIntroScreen: React.FC = () => {
         </div>
       </div>
 
-      <div className="screen-footer">
-        <button onClick={() => navigate('/tips')}>
+      <div className="standard-button-container">
+        <button 
+          className="standard-button"
+          onClick={() => navigate('/tips')}
+        >
           Fortsett
         </button>
       </div>

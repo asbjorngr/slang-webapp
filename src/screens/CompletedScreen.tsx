@@ -7,11 +7,7 @@ const CompletedScreen: React.FC = () => {
 
   return (
     <div className="screen-container">
-      <div className="screen-header">
-        <span className="back-button" onClick={() => navigate(-1)}>&larr;</span>
-      </div>
-
-      <div className="screen-content stable-animate">
+      <div className="screen-content no-header stable-animate">
         {/* Fixed image container to prevent layout shift */}
         <div style={{ 
           marginBottom: 'var(--space-lg)',
@@ -33,12 +29,12 @@ const CompletedScreen: React.FC = () => {
             onLoad={() => {}} // Prevent any potential loading flicker
           />
         </div>
-        <h1 style={{ textAlign: 'center', marginBottom: 'var(--space-xs)' }}>Ferdig!</h1>
+        <h1 className="screen-title" style={{ marginBottom: 'var(--space-xs)' }}>Ferdig!</h1>
         <p style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', fontSize: '1.1rem' }}>
           Dere har fullført Slang<br />om Trondheim Kino
         </p>
         
-        <div className="stable-animate" style={{ width: '100%', maxWidth: '340px' }}>
+        <div className="stable-animate card-container">
           <div className="card" style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--space-sm)' }}>
             <span style={{ fontSize: '1.1rem' }}>Du kan nå stanse lydopptaket. Husk å lagre.</span>
           </div>

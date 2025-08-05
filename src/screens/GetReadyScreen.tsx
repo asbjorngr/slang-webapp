@@ -35,11 +35,7 @@ const GetReadyScreen: React.FC = () => {
 
   return (
     <div className="screen-container">
-      <div className="screen-header">
-        <span className="back-button" onClick={() => navigate(-1)}>&larr;</span>
-      </div>
-
-      <div className="screen-content no-footer content-animate">
+      <div className="screen-content no-header no-footer centered-content-layout stable-animate">
         <div style={{ 
           position: 'relative', 
           width: 220, 

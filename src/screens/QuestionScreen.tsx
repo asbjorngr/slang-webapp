@@ -73,7 +73,7 @@ const QuestionScreen: React.FC = () => {
   const { number } = useParams<{ number: string }>();
   const idx = Math.max(0, Math.min(questions.length - 1, Number(number) - 1));
   const isLast = idx === questions.length - 1;
-  const progress = `${idx + 1}/${questions.length}`;
+  const progress = `Spørsmål ${idx + 1} av ${questions.length}`;
   const { question, followup } = questions[idx];
 
   const handleNext = () => {
@@ -86,13 +86,12 @@ const QuestionScreen: React.FC = () => {
 
   return (
     <div className="screen-container">
-      {/* Header with only back button */}
-      <div className="screen-header">
-        <span className="back-button" onClick={() => navigate(-1)}>&larr;</span>
-      </div>
-
       {/* Scrollable Content with Progress Bar */}
-      <div className="screen-content content-animate" style={{ justifyContent: 'flex-start', paddingTop: 'calc(var(--header-height) + var(--space-lg))' }}>
+      <div className="screen-content stable-animate" style={{ 
+        justifyContent: 'flex-start', 
+        paddingTop: 'calc(var(--safe-area-top) + var(--space-lg))',
+        paddingBottom: 'calc(120px + var(--safe-area-bottom))'
+      }}>
         {/* Progress Bar and Number above question */}
         <div className="progress-container" style={{ marginBottom: 'var(--space-xl)' }}>
           <div className="progress-bar">
@@ -104,28 +103,42 @@ const QuestionScreen: React.FC = () => {
           <div className="progress-text">{progress}</div>
         </div>
 
-        <h1 style={{ textAlign: 'center', marginBottom: 'var(--space-lg)', maxWidth: '340px' }}>
-          {question}
-        </h1>
-        <div className="card" style={{ 
+        {/* Main content area - centered */}
+        <div style={{ 
+          flex: 1, 
           display: 'flex', 
-          flexDirection: 'column',
+          flexDirection: 'column', 
           alignItems: 'center', 
           justifyContent: 'center',
-          maxWidth: '340px',
-          width: '100%',
-          textAlign: 'center'
+          gap: 'var(--space-lg)',
+          width: '100%'
         }}>
-          <div style={{ fontWeight: 'bold', marginBottom: 'var(--space-xs)' }}>
-            Oppfølgingsspørsmål
+          <h1 className="screen-title" style={{ marginBottom: 0, maxWidth: '340px' }}>
+            {question}
+          </h1>
+          <div className="card" style={{ 
+            display: 'flex', 
+            flexDirection: 'column',
+            alignItems: 'center', 
+            justifyContent: 'center',
+            maxWidth: '340px',
+            width: '100%',
+            textAlign: 'center'
+          }}>
+            <div style={{ fontWeight: 'bold', marginBottom: 'var(--space-xs)' }}>
+              Oppfølgingsspørsmål
+            </div>
+            <span style={{ fontSize: '1.1rem' }}>{followup}</span>
           </div>
-          <span style={{ fontSize: '1.1rem' }}>{followup}</span>
         </div>
       </div>
 
-      {/* Fixed Footer with Button */}
-      <div className="screen-footer">
-        <button onClick={handleNext}>
+      {/* Button positioned same as WelcomeScreen */}
+      <div className="standard-button-container">
+        <button 
+          className="standard-button"
+          onClick={handleNext}
+        >
           {isLast ? 'Fortsett' : 'Neste spørsmål'}
         </button>
       </div>

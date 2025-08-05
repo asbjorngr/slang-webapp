@@ -68,13 +68,13 @@ const RegistrationScreen: React.FC = () => {
 
   return (
     <div className="screen-container">
-      <div className="screen-header">
-        <span className="back-button" onClick={() => navigate(-1)}>&larr;</span>
-      </div>
-
-      <div className="screen-content" style={{ justifyContent: 'flex-start', paddingTop: 'calc(var(--header-height) + var(--space-lg))', paddingBottom: 'calc(var(--footer-height) + var(--space-lg))' }}>
+      <div className="screen-content no-header no-footer stable-animate" style={{ 
+        justifyContent: 'flex-start', 
+        paddingTop: 'calc(var(--safe-area-top) + var(--space-lg))', 
+        paddingBottom: 'calc(var(--space-xl) + var(--space-lg))'
+      }}>
         <div style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }} className="content-animate">
-          <h1 style={{ marginBottom: 'var(--space-xs)' }}>Registrering</h1>
+          <h1 className="screen-title" style={{ marginBottom: 'var(--space-xs)' }}>Registrering</h1>
           <p style={{ fontSize: '1.1rem', color: '#666', lineHeight: '1.4' }}>
             Legg inn kontaktinfo for<br />godtgjørelse
           </p>
@@ -85,7 +85,7 @@ const RegistrationScreen: React.FC = () => {
           method="POST" 
           data-netlify="true" 
           onSubmit={handleSubmit} 
-          style={{ width: '100%', maxWidth: '340px', display: 'flex', flexDirection: 'column', flex: 1 }}
+          style={{ width: '100%', maxWidth: '340px', display: 'flex', flexDirection: 'column' }}
           className="stagger-animate"
         >
           <input type="hidden" name="form-name" value="slang-registration" />
@@ -183,14 +183,17 @@ const RegistrationScreen: React.FC = () => {
               />
             </div>
           </div>
-
-          {/* Submit button at bottom of form */}
-          <div style={{ marginTop: 'auto', paddingTop: 'var(--space-lg)' }}>
-            <button type="submit" style={{ width: '100%', maxWidth: '340px' }}>
-              Send inn
-            </button>
-          </div>
         </form>
+      </div>
+
+      {/* Button positioned same as WelcomeScreen */}
+      <div className="standard-button-container">
+        <button 
+          className="standard-button"
+          onClick={handleSubmit}
+        >
+          Send inn
+        </button>
       </div>
     </div>
   );

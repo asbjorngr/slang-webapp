@@ -42,6 +42,20 @@
   --footer-height: 100px;
   --safe-area-top: env(safe-area-inset-top, 0px);
   --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  
+  /* Mobile-optimized heights for better viewport usage */
+  --header-height-mobile: 60px;
+  --footer-height-mobile: 75px;
+  
+  /* Dynamic viewport height support for mobile browsers */
+  --viewport-height: 100vh;
+}
+
+/* Modern browsers with dynamic viewport support */
+@supports (height: 100dvh) {
+  :root {
+    --viewport-height: 100dvh;
+  }
 }
 
 * {
@@ -51,7 +65,7 @@
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: var(--viewport-height);
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
@@ -65,8 +79,16 @@ body {
   overflow-y: scroll;
 }
 
+/* Mobile body font optimization */
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
 #root {
-  min-height: 100vh;
+  min-height: var(--viewport-height);
   position: relative;
 }
 
@@ -93,7 +115,8 @@ p, span, label, li, div {
 }
 
 .screen-container {
-  min-height: 100vh;
+  min-height: var(--viewport-height);
+  height: var(--viewport-height);
   position: relative;
   max-width: 420px;
   margin: 0 auto;
@@ -122,12 +145,12 @@ p, span, label, li, div {
 
 .screen-content {
   flex: 1;
-  padding: calc(var(--header-height) + var(--space-md)) var(--space-sm) calc(var(--footer-height) + var(--space-md)) var(--space-sm);
+  padding: calc(var(--header-height) + var(--space-sm)) var(--space-sm) calc(var(--footer-height) + var(--space-sm)) var(--space-sm);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  min-height: calc(var(--viewport-height) - var(--header-height) - var(--footer-height));
   scroll-behavior: smooth;
 }
 
@@ -268,6 +291,17 @@ button:disabled {
   transition: all 0.2s ease;
 }
 
+/* Card container for responsive layouts */
+.card-container {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
 .card:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -320,27 +354,81 @@ button:disabled {
 
 /* Mobile optimizations */
 @media (max-width: 480px) {
-  h1 { font-size: 1.4rem; }
+  :root {
+    /* Use mobile-optimized spacing for better space utilization */
+    --space-xl: 32px;
+    --space-lg: 24px;
+    --space-md: 16px;
+  }
+  
+  h1 { font-size: 1.3rem; }
   h2 { font-size: 1.1rem; }
   
-  .screen-content {
+  .screen-header {
+    height: var(--header-height-mobile);
     padding-left: var(--space-xs);
     padding-right: var(--space-xs);
   }
   
-  .screen-header,
   .screen-footer {
+    height: var(--footer-height-mobile);
     padding-left: var(--space-xs);
     padding-right: var(--space-xs);
+  }
+  
+  .screen-content {
+    padding: calc(var(--header-height-mobile) + var(--space-xs)) var(--space-xs) calc(var(--footer-height-mobile) + var(--space-xs)) var(--space-xs);
+    min-height: calc(var(--viewport-height) - var(--header-height-mobile) - var(--footer-height-mobile));
   }
   
   button {
     font-size: 1rem;
-    padding: 1rem var(--space-md);
+    padding: 0.9rem var(--space-md);
   }
   
   .card {
     padding: var(--space-sm);
+  }
+  
+  /* Mobile layout adjustments for new classes */
+  .standard-content-layout,
+  .centered-content-layout {
+    padding-top: calc(var(--safe-area-top) + var(--space-md));
+    gap: var(--space-md);
+  }
+  
+  .standard-button {
+    font-size: 1rem;
+    padding: 0.9rem var(--space-md);
+  }
+}
+
+/* Very small mobile devices (360px and down) */
+@media (max-width: 360px) {
+  .screen-title {
+    font-size: 2.5rem;
+    line-height: 1.0;
+  }
+  
+  .screen-container {
+    min-width: 320px;
+  }
+  
+  .standard-content-layout,
+  .centered-content-layout {
+    gap: var(--space-sm);
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+  }
+  
+  .card {
+    padding: var(--space-xs);
+    font-size: 0.95rem;
+  }
+  
+  .standard-button {
+    font-size: 0.95rem;
+    padding: 0.8rem var(--space-sm);
   }
 }
 
@@ -597,6 +685,422 @@ img {
   
   .followup-text {
     margin-bottom: var(--space-md);
+  }
+}
+
+/* Critical mobile height optimizations for devices like iPhone 13 Pro */
+@media (max-height: 900px) and (max-width: 480px) {
+  :root {
+    /* Further reduce spacing on height-constrained mobile devices */
+    --space-xl: 24px;
+    --space-lg: 16px;
+    --header-height-mobile: 55px;
+    --footer-height-mobile: 70px;
+  }
+  
+  h1 { 
+    font-size: 1.2rem; 
+    margin: var(--space-sm) 0 var(--space-xs) 0;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .screen-content {
+    padding: calc(var(--header-height-mobile) + var(--space-xs)) var(--space-xs) calc(var(--footer-height-mobile) + var(--space-xs)) var(--space-xs);
+    min-height: calc(var(--viewport-height) - var(--header-height-mobile) - var(--footer-height-mobile));
+    justify-content: space-between;
+  }
+  
+  /* Consistent screen title styling for all screens */
+  .screen-title {
+    font-size: 2.2rem !important;
+  }
+  
+  .screen-content.no-header p {
+    font-size: 1rem !important;
+    max-width: 260px !important;
+  }
+  
+  /* Welcome screen button positioning for mobile */
+  .screen-content.no-header.no-footer {
+    padding-bottom: calc(var(--space-lg) + var(--space-md)) !important;
+  }
+  
+  button {
+    padding: 0.8rem var(--space-sm);
+    margin-top: auto;
+  }
+}
+
+/* Consistent screen title styling for all screens */
+.screen-title {
+  font-size: 3rem;
+  margin: 0;
+  line-height: 1.1;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
+}
+
+/* Standard content container for consistent layout */
+.standard-content-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: calc(var(--safe-area-top) + var(--space-xl));
+  padding-bottom: calc(120px + var(--safe-area-bottom));
+  gap: var(--space-lg);
+}
+
+/* Centered content layout for screens that need better vertical centering */
+.centered-content-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: calc(var(--safe-area-top) + var(--space-lg));
+  padding-bottom: calc(120px + var(--safe-area-bottom));
+  gap: var(--space-lg);
+  min-height: calc(100vh - 120px - var(--safe-area-bottom) - var(--safe-area-top) - var(--space-lg));
+}
+
+/* Standard button container */
+.standard-button-container {
+  position: absolute;
+  bottom: calc(var(--safe-area-bottom) + var(--space-xl));
+  left: var(--space-sm);
+  right: var(--space-sm);
+  display: flex;
+  justify-content: center;
+}
+
+.standard-button {
+  width: 100%;
+  max-width: 340px;
+}
+
+/* Tablet optimizations (768px and up) */
+@media (min-width: 768px) {
+  .screen-container {
+    max-width: 70vw;
+    min-width: 480px;
+  }
+  
+  .screen-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    max-width: 60vw;
+    min-width: 400px;
+  }
+  
+  .standard-content-layout,
+  .centered-content-layout {
+    padding-top: calc(var(--safe-area-top) + var(--space-xl) + var(--space-md));
+    padding-bottom: calc(130px + var(--safe-area-bottom));
+    gap: var(--space-lg);
+  }
+  
+  .standard-button-container {
+    bottom: calc(var(--safe-area-bottom) + var(--space-xl) + var(--space-md));
+  }
+  
+  .standard-button {
+    max-width: 380px;
+    font-size: 1.1rem;
+    padding: 1.1rem var(--space-lg);
+  }
+  
+  .card {
+    font-size: 1.1rem;
+    padding: var(--space-md);
+    max-width: 50vw;
+    min-width: 360px;
+    line-height: 1.5;
+    margin: 0 auto;
+  }
+  
+  /* Responsive card containers */
+  .card-container {
+    max-width: 50vw;
+    min-width: 360px;
+  }
+  
+  /* Question screen specific tablet optimizations */
+  .progress-container {
+    max-width: 50vw;
+    min-width: 360px;
+  }
+  
+  /* Question screen title and content adjustments for tablet */
+  .screen-content .screen-title {
+    max-width: 65vw;
+    min-width: 420px;
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+    line-height: 1.1;
+  }
+  
+  .screen-content .card {
+    max-width: 50vw;
+    min-width: 360px;
+    padding: var(--space-md);
+    margin: 0 auto;
+  }
+}
+
+/* Desktop optimizations (1024px and up) */
+@media (min-width: 1024px) {
+  .screen-container {
+    max-width: 65vw;
+    min-width: 520px;
+    margin: 0 auto;
+  }
+  
+  .screen-title {
+    font-size: clamp(3rem, 4.5vw, 4rem);
+    max-width: 55vw;
+    min-width: 450px;
+    line-height: 1.1;
+  }
+  
+  .standard-content-layout,
+  .centered-content-layout {
+    padding-top: calc(var(--safe-area-top) + var(--space-xl));
+    padding-bottom: calc(140px + var(--safe-area-bottom));
+    gap: var(--space-xl);
+  }
+  
+  .standard-button-container {
+    bottom: calc(var(--safe-area-bottom) + var(--space-xl));
+  }
+  
+  .standard-button {
+    max-width: 420px;
+    font-size: 1.1rem;
+    padding: 1.1rem var(--space-lg);
+  }
+  
+  .card {
+    font-size: 1.1rem;
+    padding: var(--space-md);
+    max-width: 45vw;
+    min-width: 400px;
+    line-height: 1.6;
+    margin: 0 auto;
+  }
+  
+  /* Responsive card containers */
+  .card-container {
+    max-width: 45vw;
+    min-width: 400px;
+  }
+  
+  /* Desktop hover effects */
+  .standard-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  
+  .card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  
+  /* Question screen specific desktop optimizations */
+  .progress-container {
+    max-width: 45vw;
+    min-width: 400px;
+  }
+  
+  .screen-content .screen-title {
+    max-width: 60vw;
+    min-width: 480px;
+    font-size: clamp(2.8rem, 4.2vw, 3.8rem);
+    line-height: 1.1;
+  }
+  
+  .screen-content .card {
+    max-width: 45vw;
+    min-width: 400px;
+    padding: var(--space-md);
+    font-size: 1.1rem;
+    margin: 0 auto;
+  }
+  
+  /* Progress text sizing for desktop */
+  .progress-text {
+    font-size: 1rem;
+  }
+  
+  /* Ensure proper text sizing in cards */
+  .card span {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  /* Follow-up question label */
+  .card div {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: var(--space-sm);
+  }
+}
+
+/* Large desktop optimizations (1440px and up) */
+@media (min-width: 1440px) {
+  .screen-container {
+    max-width: 60vw;
+    min-width: 600px;
+  }
+  
+  .screen-title {
+    font-size: clamp(3.5rem, 4.8vw, 4.5rem);
+    max-width: 50vw;
+    min-width: 500px;
+  }
+  
+  .standard-content-layout,
+  .centered-content-layout {
+    padding-top: calc(var(--space-xl) * 2);
+    padding-bottom: calc(160px + var(--space-lg));
+    gap: calc(var(--space-xl) + var(--space-md));
+  }
+  
+  .standard-button {
+    max-width: 480px;
+    font-size: 1.2rem;
+    padding: 1.2rem var(--space-xl);
+  }
+
+  .card {
+    font-size: 1.2rem;
+    padding: var(--space-lg);
+    max-width: 40vw;
+    min-width: 450px;
+    line-height: 1.6;
+    margin: 0 auto;
+  }
+  
+  /* Responsive card containers */
+  .card-container {
+    max-width: 40vw;
+    min-width: 450px;
+  }
+  
+  /* Question screen ultra-wide optimizations */
+  .progress-container {
+    max-width: 40vw;
+    min-width: 450px;
+  }
+  
+  .screen-content .screen-title {
+    max-width: 55vw;
+    min-width: 550px;
+    font-size: clamp(3.2rem, 4.5vw, 4.2rem);
+  }
+  
+  .screen-content .card {
+    max-width: 40vw;
+    min-width: 450px;
+    padding: var(--space-lg);
+    font-size: 1.2rem;
+    margin: 0 auto;
+  }
+  
+  /* Enhanced card content styling for large screens */
+  .card span {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  .card div {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-md);
+  }
+  
+  /* Progress text sizing for large desktop */
+  .progress-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Ultra-wide desktop optimizations (1920px and up) */
+@media (min-width: 1920px) {
+  .screen-container {
+    max-width: 55vw;
+    min-width: 700px;
+  }
+  
+  .screen-title {
+    font-size: clamp(4rem, 5vw, 5rem);
+    max-width: 45vw;
+    min-width: 600px;
+  }
+  
+  .standard-content-layout,
+  .centered-content-layout {
+    padding-top: calc(var(--space-xl) * 2.5);
+    padding-bottom: calc(180px + var(--space-lg));
+    gap: calc(var(--space-xl) + var(--space-lg));
+  }
+  
+  .standard-button {
+    max-width: 520px;
+    font-size: 1.3rem;
+    padding: 1.3rem calc(var(--space-xl) + var(--space-md));
+  }
+  
+  .card {
+    font-size: 1.3rem;
+    padding: var(--space-lg);
+    max-width: 35vw;
+    min-width: 500px;
+    line-height: 1.7;
+    margin: 0 auto;
+  }
+  
+  /* Responsive card containers */
+  .card-container {
+    max-width: 35vw;
+    min-width: 500px;
+  }
+  
+  /* Question screen ultra-wide optimizations */
+  .progress-container {
+    max-width: 35vw;
+    min-width: 500px;
+  }
+  
+  .screen-content .screen-title {
+    max-width: 50vw;
+    min-width: 650px;
+    font-size: clamp(3.8rem, 4.8vw, 4.8rem);
+  }
+  
+  .screen-content .card {
+    max-width: 35vw;
+    min-width: 500px;
+    padding: var(--space-lg);
+    font-size: 1.3rem;
+    margin: 0 auto;
+  }
+  
+  /* Enhanced card content styling for ultra-wide screens */
+  .card span {
+    font-size: 1.3rem;
+    line-height: 1.7;
+  }
+  
+  .card div {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-lg);
+  }
+  
+  /* Progress text sizing for ultra-wide desktop */
+  .progress-text {
+    font-size: 1.2rem;
   }
 }
 

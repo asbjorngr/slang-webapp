@@ -5,11 +5,7 @@ const EnableRecordingScreen: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div className="screen-container">
-      <div className="screen-header">
-        <span className="back-button" onClick={() => navigate(-1)}>&larr;</span>
-      </div>
-
-      <div className="screen-content content-animate">
+      <div className="screen-content no-header no-footer centered-content-layout stable-animate">
         <div className="card" style={{ 
           borderRadius: 32, 
           padding: 'var(--space-xl) var(--space-lg)', 
@@ -31,8 +27,11 @@ const EnableRecordingScreen: React.FC = () => {
         </div>
       </div>
 
-      <div className="screen-footer">
-        <button onClick={() => navigate('/get-ready')}>
+      <div className="standard-button-container">
+        <button 
+          className="standard-button"
+          onClick={() => navigate('/get-ready')}
+        >
           Den er grei
         </button>
       </div>
