@@ -1,9 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import horseImg from '../assets/a transparent icon of an icelandic pony head.png';
 
 const CompletedScreen: React.FC = () => {
-  const navigate = useNavigate();
 
   const handleSendInn = () => {
     // Open email client with Superponni email
