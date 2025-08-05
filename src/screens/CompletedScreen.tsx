@@ -31,7 +31,7 @@ const CompletedScreen: React.FC = () => {
         </div>
         <h1 className="screen-title" style={{ marginBottom: 'var(--space-xs)' }}>Ferdig!</h1>
         <p style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', fontSize: '1.1rem' }}>
-          Dere har fullført Slang<br />om Trondheim Kino
+          Dere har fullført Slang<br />om Trondheim Kino. Tusen takk for hjelpen!
         </p>
         
         <div className="stable-animate card-container">
